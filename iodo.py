@@ -212,7 +212,7 @@ def main():
   cport = '' if port is None else f'{purple}:{fluo2}{port}'
   print(stage(f"Starting attack on {fluo2}{ip}{cport}{white}."), end='\r')
 
-  iodo = iododdos(ip, port, force, threads)
+  iodo = Brutalize(ip, port, force, threads)
   try:
     iodo.flood()
   except:
