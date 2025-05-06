@@ -3,11 +3,9 @@ from threading import Thread
 from random import randint
 from time import time, sleep
 from pystyle import *
-from getpass import getpass as hinput
 import hashlib
 
 class Brutalize:
-
     def __init__(self, ip, port, force, threads):
         self.ip = ip
         self.port = port
@@ -46,7 +44,7 @@ class Brutalize:
                 print(stage(
                     f"{fluo}{round(size)} {white}Mb/s {purple}-{white} Total: {fluo}{round(self.total, 1)} {white}Gb. {' '*20}"
                 ),
-                    end='\r')
+                      end='\r')
 
             now2 = time()
 
@@ -75,7 +73,6 @@ class Brutalize:
     def _randport(self):
         return self.port or randint(1, 65535)
 
-
 ascii = r'''
 
  _____   ___   ______      ___    
@@ -85,9 +82,6 @@ ascii = r'''
  _| |_\  `-'  /_| |_.' /\  `-'  / 
 |_____|`.___.'|______.'  `.___.'  
                                        
-                                                        
-                                                        
-                                                        
 '''
 
 banner = r"""
@@ -123,34 +117,28 @@ blue = Col.StaticMIX((Col.blue, Col.black))
 bpurple = Col.StaticMIX((Col.purple, Col.black, blue))
 purple = Col.StaticMIX((Col.purple, blue, Col.white))
 
-
 def init():
     System.Size(140, 40), System.Title(
         ".B.r.u.t.e. .-. .b.y. .S.P.A.R.K.L.E.E.".replace('.', ''))
     Cursor.HideCursor()
 
-
 init()
-
 
 def stage(text, symbol='...'):
     col1 = purple
     col2 = white
     return f" {Col.Symbol(symbol, col2, col1, '{', '}')} {col2}{text}"
 
-
 def error(text, start='\n'):
-    hinput(f"{start} {Col.Symbol('!', fluo, white)} {fluo}{text}")
+    input(f"{start} {Col.Symbol('!', fluo, white)} {fluo}{text}")
     exit()
-
 
 def check_password():
     expected_hash = '11fd2b1c95b18f848ebef6b0a4bdb0e60b4ee2bb4e0b0af2b60e242cc8f2749b'  # SHA-256 of 'DIDIYLEMAQ'
-    entered = hinput(stage(f"Enter Pass {purple}->{fluo2} ", '?'))
+    entered = input(stage(f"Enter Pass {purple}->{fluo2} ", '?'))  # now input() so it shows
     entered_hash = hashlib.sha256(entered.encode()).hexdigest()
     if entered_hash != expected_hash:
         error("Incorrect password!")
-
 
 def main():
     check_password()
@@ -222,7 +210,7 @@ def main():
         iodo.flood()
     except:
         iodo.stop()
-        error("A fatal error has occured and the attack was stopped.", '')
+        error("A fatal error has occurred and the attack was stopped.", '')
     try:
         while True:
             sleep(1000000)
@@ -235,8 +223,7 @@ def main():
     print('\n')
     sleep(1)
 
-    hinput(stage(f"Press {fluo2}enter{white} to {fluo}exit{white}.", '.'))
-
+    input(stage(f"Press {fluo2}enter{white} to {fluo}exit{white}.", '.'))
 
 if __name__ == '__main__':
     main()
